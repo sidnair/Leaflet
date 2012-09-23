@@ -162,12 +162,8 @@ L.DomUtil = {
 	},
 
 	getScaleString: function (scale, origin) {
-
-		var preTranslateStr = L.DomUtil.getTranslateString(origin),
-			scaleStr = ' scale(' + scale + ') ',
-			postTranslateStr = L.DomUtil.getTranslateString(origin.multiplyBy(-1));
-
-		return preTranslateStr + scaleStr + postTranslateStr;
+		return L.DomUtil.getTranslateString(origin.multiplyBy(1 - scale)) +
+			' scale(' + scale + ')';
 	},
 
 	setPosition: function (el, point, disable3D) { // (HTMLElement, Point[, Boolean])
